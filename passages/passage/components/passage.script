@@ -1,4 +1,4 @@
-require("modules.shared")
+require 'modules.shared'
 
 go.property('sprite', hash(''))
 go.property('destination', hash(''))
@@ -6,7 +6,7 @@ go.property('destiny_position', vmath.vector3())
 require 'modules.positions'
 
 function init(self)
-	msg.post('#sprite', 'play_animation', {id = self.sprite})
+	sprite_anim(self.sprite)
 end
 
 

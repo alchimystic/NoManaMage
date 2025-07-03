@@ -3,7 +3,7 @@ require 'modules.shared'
 
 function init(self)
 	acquire_input_focus()
-	msg.post('#sprite', 'disable')
+	sprite_enable(false)
 	self.custom = {
 		mouse_position = vmath.vector3(0, 0, 0.05),
 		fn_input_teleport_pointer = function(self, act_id, act)
@@ -13,10 +13,10 @@ function init(self)
 		fn_input_enable_pointer = function(self, act_id, act)
 			if act_id == hash('teleport') then
 				if act.pressed then
-					msg.post('#sprite', 'enable')
+					sprite_enable()
 					sprite.play_flipbook('#sprite', 'flame')
 				elseif act.released then
-					msg.post('#sprite', 'disable')
+					sprite_enable(false)
 				end
 			end	
 		end,	

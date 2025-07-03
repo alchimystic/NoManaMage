@@ -7,7 +7,7 @@ require 'modules.positions'
 require 'modules.shared'
 
 function init(self)
-	msg.post('#sprite', 'play_animation', {id = self.sprite})
+	sprite_anim(self.sprite)
 end
 
 function on_message(self, message_id, message, sender)

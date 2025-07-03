@@ -1,9 +1,11 @@
 require 'modules.positions'
 require 'modules.hud_cache'
+require 'modules.shared'
+
 go.property('sprite', hash(''))
 
 function init(self)
-	msg.post('#sprite', 'play_animation', {id = self.sprite})
+	sprite_anim(self.sprite)
 	self.message_constructor = function(text)
 		return {text, hash('general_message')}
 	end
