@@ -1,12 +1,12 @@
 require 'modules.positions'
 require 'modules.smath'
 require 'modules.hud_cache'
-require("modules.shared")
+require 'modules.shared'
 
 go.property('on_death', hash(''))
 
 function init(self)
-	msg.post('.', 'acquire_input_focus')
+	acquire_input_focus()
 	msg.post('/mage_cam', 'acquire_camera_focus')
 	msg.post('#teleport_zone', 'disable')
 	-- All personalized functions for the game object

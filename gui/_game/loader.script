@@ -1,4 +1,5 @@
-local hashed = require("modules.hashed")
+local hashed = require "modules.hashed"
+require 'modules.shared'
 
 local hash_levels = {
 	[hashed.main_menu] = 'main_menu',
@@ -43,7 +44,7 @@ end
 
 function init(self)
 	msg.post("@render:", "use_fixed_fit_projection", {near = -1, far = 1})
-	msg.post('.', 'acquire_input_focus')
+	acquire_input_focus()
 
 	loader('main_menu')
 end

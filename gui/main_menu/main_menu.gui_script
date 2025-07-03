@@ -1,7 +1,7 @@
-require("modules.shared")
+require 'modules.shared'
 
 function init(self)
-	msg.post(".", "acquire_input_focus")
+	acquire_input_focus()
 	sound.play('#main_menu_soundtrack')
 end
 
