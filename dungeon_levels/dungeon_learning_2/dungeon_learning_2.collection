@@ -2,22 +2,6 @@ name: "dungeon_learning_2"
 instances {
   id: "map_level_3"
   prototype: "/maps/map_level_3.go"
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
 }
 instances {
   id: "dungeon_guide"
@@ -27,12 +11,6 @@ instances {
     y: 107.0
     z: 0.02
   }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
   component_properties {
     id: "dungeon_guide"
     properties {
@@ -40,11 +18,6 @@ instances {
       value: "dungeon_learning_2"
       type: PROPERTY_TYPE_HASH
     }
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
   }
 }
 instances {
@@ -55,12 +28,6 @@ instances {
     y: 136.0
     z: 0.02
   }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
   component_properties {
     id: "passage"
     properties {
@@ -70,7 +37,7 @@ instances {
     }
     properties {
       id: "destination"
-      value: "load_dungeon_level_1"
+      value: "dungeon_learning_1"
       type: PROPERTY_TYPE_HASH
     }
     properties {
@@ -78,11 +45,6 @@ instances {
       value: "313.0, 103.0, 0.02"
       type: PROPERTY_TYPE_VECTOR3
     }
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
   }
 }
 instances {
@@ -94,17 +56,6 @@ instances {
     y: 126.0
     z: 0.03
   }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
 }
 instances {
   id: "mage_cam"
@@ -113,59 +64,15 @@ instances {
   position {
     x: -152.0
     y: -80.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
   }
 }
 instances {
   id: "hud"
   prototype: "/gui/hud/hud.go"
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
 }
 instances {
   id: "mouse_pointer"
   prototype: "/gui/mouse_pointer/mouse_pointer.go"
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
 }
 instances {
   id: "passage_out"
@@ -174,12 +81,6 @@ instances {
     x: 280.0
     y: 88.0
     z: 0.02
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
   }
   component_properties {
     id: "passage"
@@ -190,14 +91,9 @@ instances {
     }
     properties {
       id: "destination"
-      value: "load_dungeon_level_3"
+      value: "dungeon_learning_3"
       type: PROPERTY_TYPE_HASH
     }
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
   }
 }
 scale_along_z: 0

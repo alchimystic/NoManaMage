@@ -1,5 +1,7 @@
 /.internal
 /build
+build
+.internal
 .externalToolBuilders
 .DS_Store
 Thumbs.db

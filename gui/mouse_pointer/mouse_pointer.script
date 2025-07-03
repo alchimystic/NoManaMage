@@ -61,6 +61,12 @@ function on_message(self, message_id, message, sender)
 	end
 end
 function on_input(self, action_id, action)
+	if action_id == nil then
+		return
+	end
+	print(action_id)
+	print(json.encode(action))
+		
 	for fn_name, fn in pairs(self.custom) do
 		if string.find(fn_name, 'fn_input') then 
 			fn(self, action_id, action) 

@@ -1,3 +1,17 @@
+local hashed = require("modules.hashed")
+
+local hash_levels = {
+	[hashed.main_menu] = 'main_menu',
+	[hashed.dungeon_entrance] = 'dungeon_entrance',
+	[hashed.dungeon_learning_1] = 'dungeon_learning_1',
+	[hashed.dungeon_learning_2] = 'dungeon_learning_2',
+	[hashed.dungeon_learning_3] = 'dungeon_learning_3',
+	[hashed.dungeon_learning_4] = 'dungeon_learning_4',
+	[hashed.dungeon_maze_1] = 'dungeon_maze_1',
+	[hashed.dungeon_maze_2] = 'dungeon_maze_2',
+	[hashed.game_over] = 'game_over',
+}
+
 local currently_enabled = nil
 
 local unloader = function(enab)
@@ -13,72 +27,34 @@ local load_and_enable = function(lev, enab)
 	currently_enabled = lev
 end
 
+local loader = function(level)
+
+	if type(level) == 'userdata' then
+		level = hash_levels[level] -- map hash to string value
+	end
+	
+	if level == 'main_menu' then
+		previous_level = nil		
+	end
+
+	local lev = "level_selector#" .. level
+	load_and_enable(lev, currently_enabled)
+end
+
 function init(self)
 	msg.post("@render:", "use_fixed_fit_projection", {near = -1, far = 1})
 	msg.post('.', 'acquire_input_focus')
-	self.funcs = {
-		{
-			hash('load_start_menu'),
-			function()
-				previous_level = nil
-				local level = 'level_selector#main_menu'
-				load_and_enable(level, currently_enabled)
-			end
-		},{
-			hash('load_dungeon_entrance'),
-			function()
-				local level = 'level_selector#dungeon_entrance'
-				load_and_enable(level, currently_enabled)
-			end
-		},{
-			hash('load_dungeon_level_1'),
-			function()
-				local level = 'level_selector#dungeon_learning_1'
-				load_and_enable(level, currently_enabled)
-			end
-		},{
-			hash('load_dungeon_level_2'),
-			function()
-				local level = 'level_selector#dungeon_learning_2'
-				load_and_enable(level, currently_enabled)
-			end
-		},{
-			hash('load_dungeon_level_3'),
-			function()
-				local level = 'level_selector#dungeon_learning_3'
-				load_and_enable(level, currently_enabled)
-			end
-		},{
-			hash('load_dungeon_level_4'),
-			function()
-				local level = 'level_selector#dungeon_learning_4'
-				load_and_enable(level, currently_enabled)
-			end
-		},{
-			hash('load_dungeon_maze_1'),
-			function()
-				local level = 'level_selector#dungeon_maze_1'
-				load_and_enable(level, currently_enabled)
-			end
-		},{
-			hash('load_dungeon_maze_2'),
-			function()
-				local level = 'level_selector#dungeon_maze_2'
-				load_and_enable(level, currently_enabled)
-			end
-		},{
-			hash('load_game_over'),
-			function()
-				local level = 'level_selector#game_over'
-				load_and_enable(level, currently_enabled)
-			end
-		}
-	}
-	self.funcs[1][2]()
+
+	loader('main_menu')
 end
 
 function on_message(self, message_id, message, sender)
-	for i, v in ipairs(self.funcs) do
-		if v[1] == message_id then v[2]() end
+	if message_id == hash('load') then
+		--print(type(message_id))
+		--print(type(message))
+		--print(type(message.level))
+		loader(message.level)
+	else
+		print("message_id not supported" .. message_id)
 	end
 end

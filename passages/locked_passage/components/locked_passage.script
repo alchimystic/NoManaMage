@@ -1,7 +1,10 @@
+
 go.property('sprite', hash(''))
 go.property('destination', hash(''))
 go.property('destiny_position', vmath.vector3())
+
 require 'modules.positions'
+require 'modules.shared'
 
 function init(self)
 	msg.post('#sprite', 'play_animation', {id = self.sprite})
@@ -14,7 +17,7 @@ function on_message(self, message_id, message, sender)
 		message.other_group == hash('mage') 
 	then
 		if mage_has_key then
-			msg.post('game:/level_selector#loader', self.destination)
+			triger_level_load(self.destination)
 			mage_has_key = false
 			mage_spawn_position = self.destiny_position
 		else

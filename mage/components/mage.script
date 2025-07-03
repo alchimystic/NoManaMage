@@ -1,6 +1,8 @@
 require 'modules.positions'
 require 'modules.smath'
 require 'modules.hud_cache'
+require("modules.shared")
+
 go.property('on_death', hash(''))
 
 function init(self)
@@ -75,7 +77,7 @@ function init(self)
 				if mage_life > 0 and self.custom.unique then
 					mage_life = mage_life - 1
 					self.custom.unique = false
-					msg.post('game:/level_selector#loader', self.on_death)
+					triger_level_load(self.on_death)
 					table.insert(
 						messages, 
 						1, 
@@ -86,7 +88,7 @@ function init(self)
 					)
 				elseif mage_life <= 0 and self.custom.unique then
 					self.custom.unique = false
-					msg.post('game:/level_selector#loader', 'load_game_over')
+					triger_level_load('game_over')
 				end
 			end
 		end,

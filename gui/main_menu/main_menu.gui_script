@@ -1,3 +1,5 @@
+require("modules.shared")
+
 function init(self)
 	msg.post(".", "acquire_input_focus")
 	sound.play('#main_menu_soundtrack')
@@ -12,7 +14,7 @@ function on_input(self, action_id, action)
 				nil, 
 				(function() 
 					msg.post('game:/level_selector#loader', 'unload_start_menu')
-					msg.post('game:/level_selector#loader', 'load_dungeon_entrance')
+					triger_level_load('dungeon_entrance')
 				end)
 			)
 			
