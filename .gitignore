@@ -1,6 +1,6 @@
 /.internal
 /build
-build
+build/**
 .internal
 .externalToolBuilders
 .DS_Store
